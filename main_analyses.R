@@ -217,7 +217,7 @@ af_set[,':='(age65_visit0_graphical = factor(ifelse(age65_visit0==1,"Yes","No"),
 # CHARGE
 af_charge <- prodlim(Hist(incd_af_5y.t,incd_af_5y)~charge_pred_above5_graphical,data=af_set)
 
-CairoPDF(file='~/Documents/MGH Research/prs/af_charge.pdf',height=3,width=3.5,
+CairoPDF(file='af_charge.pdf',height=3,width=3.5,
          pointsize=4)
 par(oma=c(3,1,1,1),mar=c(3,1,1,1))
 plot(af_charge,"cuminc",ylim=c(0,0.10),
@@ -235,7 +235,7 @@ dev.off()
 ## Predict-AF
 af_predict <- prodlim(Hist(incd_af_5y.t,incd_af_5y)~predict_af_pred_above5_graphical,data=af_set)
 
-CairoPDF(file='~/Documents/MGH Research/prs/af_predict.pdf',height=3,width=3.5,
+CairoPDF(file='af_predict.pdf',height=3,width=3.5,
          pointsize=4)
 par(oma=c(3,1,1,1),mar=c(3,1,1,1))
 plot(af_predict,"cuminc",ylim=c(0,0.10),
@@ -253,7 +253,7 @@ dev.off()
 ## Age >= 65
 af_65 <- prodlim(Hist(incd_af_5y.t,incd_af_5y)~age65_visit0_graphical,data=af_set)
 
-CairoPDF(file='~/Documents/MGH Research/prs/af_65.pdf',height=3,width=3.5,
+CairoPDF(file='af_65.pdf',height=3,width=3.5,
          pointsize=4)
 par(oma=c(3,1,1,1),mar=c(3,1,1,1))
 plot(af_65,"cuminc",ylim=c(0,0.10),
@@ -272,7 +272,7 @@ dev.off()
 # CHARGE-AF
 stroke_charge5 <- prodlim(Hist(stroke_5y.t,stroke_5y)~charge_pred_above5_graphical,data=stroke_set)
 
-CairoPDF(file='~/Documents/MGH Research/prs/stroke_charge.pdf',height=3,width=3.5,
+CairoPDF(file='stroke_charge.pdf',height=3,width=3.5,
          pointsize=4)
 par(oma=c(3,1,1,1),mar=c(3,1,1,1))
 plot(stroke_charge5,"cuminc",ylim=c(0,0.025),xlim=c(0,5),background=F,
@@ -291,7 +291,7 @@ dev.off()
 ## Predict-AF 
 stroke_predict5 <- prodlim(Hist(stroke_5y.t,stroke_5y)~predict_af_pred_above5_graphical,data=stroke_set)
 
-CairoPDF(file='~/Documents/MGH Research/prs/stroke_predict.pdf',height=3,width=3.5,
+CairoPDF(file='stroke_predict.pdf',height=3,width=3.5,
          pointsize=4)
 par(oma=c(3,1,1,1),mar=c(3,1,1,1))
 plot(stroke_predict5,"cuminc",ylim=c(0,0.025),xlim=c(0,5),background=F,
@@ -310,7 +310,7 @@ dev.off()
 ## Age >= 65
 stroke_65 <- prodlim(Hist(stroke_5y.t,stroke_5y)~age65_visit0_graphical,data=stroke_set)
 
-CairoPDF(file='~/Documents/MGH Research/prs/stroke_65.pdf',height=3,width=3.5,
+CairoPDF(file='stroke_65.pdf',height=3,width=3.5,
          pointsize=4)
 par(oma=c(3,1,1,1),mar=c(3,1,1,1))
 plot(stroke_65,"cuminc",ylim=c(0,0.025),xlim=c(0,5),background=F,
@@ -375,7 +375,7 @@ ggplot() + geom_density(data=data,aes(x=value,fill=L1),alpha=0.55) +
         axis.title.y = element_text(size=20,margin = margin(t = 0, r = 10, b = 0, l = 0)),
         axis.title.x = element_text(size=20),legend.text=element_text(size=20)) +
   labs(x='Predicted 5-year AF risk (%)',y='density')
-ggsave(filename='~/Documents/MGH Research/prs/density_predict_ctrl.pdf',height=1.8,width=2.53,
+ggsave(filename='density_predict_ctrl.pdf',height=1.8,width=2.53,
        scale=4,device='pdf')
 
 # CHARGE vs Predict-AF (cases)
@@ -392,7 +392,7 @@ ggplot() + geom_density(data=data,aes(x=value,fill=L1),alpha=0.55) +
         axis.title.y = element_text(size=20,margin = margin(t = 0, r = 10, b = 0, l = 0)),
         axis.title.x = element_text(size=20),legend.text=element_text(size=20)) +
   labs(x='Predicted 5-year AF risk (%)',y='density')
-ggsave(filename='~/Documents/MGH Research/prs/density_predict_case.pdf',height=1.8,width=2.53,
+ggsave(filename='density_predict_case.pdf',height=1.8,width=2.53,
        scale=4,device='pdf')
 
 ## Plotting separately among scores
@@ -412,7 +412,7 @@ ggplot() + geom_density(data=data,aes(x=value,fill=L1),alpha=0.55) +
         axis.title.y = element_text(size=20,margin = margin(t = 0, r = 10, b = 0, l = 0)),
         axis.title.x = element_text(size=20),legend.text=element_text(size=20)) +
   labs(x='CHARGE-AF Score',y='density')
-ggsave(filename='~/Documents/MGH Research/prs/density_charge_raw.pdf',height=1.8,width=2.53,
+ggsave(filename='density_charge_raw.pdf',height=1.8,width=2.53,
        scale=4,device='pdf')
 
 # Generate PRS distribution
@@ -429,7 +429,7 @@ ggplot() + geom_density(data=data,aes(x=value,fill=L1),alpha=0.55) +
         axis.title.y = element_text(size=20,margin = margin(t = 0, r = 10, b = 0, l = 0)),
         axis.title.x = element_text(size=20),legend.text=element_text(size=20)) +
   labs(x='AF PRS Score',y='density')
-ggsave(filename='~/Documents/MGH Research/prs/density_prs_raw.pdf',height=1.8,width=2.53,
+ggsave(filename='density_prs_raw.pdf',height=1.8,width=2.53,
        scale=4,device='pdf')
 
 # Generate CHARGE PRS distribution
@@ -446,7 +446,7 @@ ggplot() + geom_density(data=data,aes(x=value,fill=L1),alpha=0.55) +
         axis.title.y = element_text(size=20,margin = margin(t = 0, r = 10, b = 0, l = 0)),
         axis.title.x = element_text(size=20),legend.text=element_text(size=20)) +
   labs(x='Predict-AF Score',y='density')
-ggsave(filename='~/Documents/MGH Research/prs/density_predict_raw.pdf',height=1.8,width=2.53,
+ggsave(filename='density_predict_raw.pdf',height=1.8,width=2.53,
        scale=4,device='pdf')
 
 ############################################# STEP 7: Calibration
@@ -777,7 +777,7 @@ age <- timeROC(T=af_set$incd_af_5y.t, delta=af_set$incd_af_5y,
                marker=af_set$agevisit0,cause=1,times=c(0,1,2,3,4,4.999))
 
 ## Plotting
-pdf(file='~/Documents/MGH Research/prs/rocs.pdf',height=3,width=3,
+pdf(file='rocs.pdf',height=3,width=3,
     pointsize=3)
 par(oma=c(3,3,1,1))
 par(mar=c(4,4,1,1))
@@ -813,7 +813,7 @@ roc_predict_less65 <- timeROC(T=af_set$incd_af_before65_5y.t, delta=af_set$incd_
                               marker=af_set$predict_af,cause=1,times=c(0,1,2,3,4,4.999))
 
 ## Plotting
-pdf(file='~/Documents/MGH Research/prs/rocs_less65.pdf',height=3,width=3,
+pdf(file='rocs_less65.pdf',height=3,width=3,
     pointsize=3)
 par(oma=c(3,3,1,1))
 par(mar=c(4,4,1,1))
@@ -874,7 +874,7 @@ cal_predict <- c(fit2$coefficients[1],confint(fit2,"predict_af")[1],confint(fit2
 # plot calibrations
 cal.predict<-calibrate(fit,u=5*365.25,cmethod='hare',B=200) # ultimately want B=200 but takes a while, B=10 good enough to see how it looks
 
-pdf('~/Documents/MGH Research/prs/predict_cal_rms.pdf',height=3,width=3,pointsize=3)
+pdf('predict_cal_rms.pdf',height=3,width=3,pointsize=3)
 par(oma=c(1,1,1,1))
 par(oma=c(1,1,1,1))
 
@@ -947,7 +947,7 @@ stdca_std <- stdca(data=af_set,outcome='incd_af_5y',ttoutcome='incd_af_5y.t',
                    xstart=0,xstop=0.15,xby=0.005,probability=c(TRUE,TRUE,TRUE),graph=TRUE)
 
 # Plot standard decision curve
-pdf('~/Documents/MGH Research/prs/decision_stdca.pdf',height=4,width=4.5,pointsize=5)
+pdf('decision_stdca.pdf',height=4,width=4.5,pointsize=5)
 par(mar=c(4.5,3,1,1),oma=c(4.5,3,1,1))
 
 y1 <- stdca_std$net.benefit[,'all'][!is.na(stdca_std$net.benefit[,'all'])]/max(stdca_std$net.benefit[,'all'])
@@ -1005,7 +1005,7 @@ stdca2 <- stdca(data=af_set[af_set$age65_visit0==1,],outcome='incd_af_5y',ttoutc
                 xstart=0,xstop=0.15,xby=0.005,probability=c(TRUE,TRUE),intervention=TRUE,graph=FALSE)
 
 # Plot all strategies in all population
-pdf('~/Documents/MGH Research/prs/intervention_avoided.pdf',height=3,width=3,pointsize=3)
+pdf('intervention_avoided.pdf',height=3,width=3,pointsize=3)
 par(mar=c(2,3,1,1),oma=c(2,3,1,1))
 
 y1 <- stdca$interventions.avoided[,'predict_af_pred5_fraction'][!is.na(stdca$interventions.avoided[,'predict_af_pred5_fraction'])]
@@ -1038,7 +1038,7 @@ plot(x3,y3,type='l',xaxt='n',yaxt='n',xlab='',ylab='',bty='n',ylim=c(0,90),
 dev.off()
 
 # Plot risk in age >= 65 population
-pdf('~/Documents/MGH Research/prs/intervention_avoided_65.pdf',height=3,width=3,pointsize=3)
+pdf('intervention_avoided_65.pdf',height=3,width=3,pointsize=3)
 par(mar=c(2,3,1,1),oma=c(2,3,1,1))
 
 y1 <- stdca2$interventions.avoided[,'predict_af_pred5_fraction'][c(!is.na(stdca$interventions.avoided[,'predict_af_pred5_fraction'])
@@ -1101,7 +1101,7 @@ af1_charge_sub1 <- af1_charge; af1_charge_sub1$surv <- 1-((1-af1_charge_sub1$sur
 af1_charge_sub2 <- af1_charge; af1_charge_sub2$surv <- 1-((1-af1_charge_sub2$surv)*0.35)
 af1_charge_sub3 <- af1_charge; af1_charge_sub3$surv <- 1-((1-af1_charge_sub3$surv)*0.40)
 
-CairoPDF(file='~/Documents/MGH Research/prs/af_charge_nns.pdf',height=3,width=3.5,
+CairoPDF(file='af_charge_nns.pdf',height=3,width=3.5,
          pointsize=4)
 par(oma=c(5,6,3,1),mar=c(5,6,3,1))
 plot(af1_charge,"cuminc",ylim=c(0,0.012),
@@ -1125,7 +1125,7 @@ af1_predict_sub1 <- af1_predict; af1_predict_sub1$surv <- 1-((1-af1_predict_sub1
 af1_predict_sub2 <- af1_predict; af1_predict_sub2$surv <- 1-((1-af1_predict_sub2$surv)*0.35)
 af1_predict_sub3 <- af1_predict; af1_predict_sub3$surv <- 1-((1-af1_predict_sub3$surv)*0.40)
 
-CairoPDF(file='~/Documents/MGH Research/prs/af_predict_nns.pdf',height=3,width=3.5,
+CairoPDF(file='af_predict_nns.pdf',height=3,width=3.5,
          pointsize=4)
 par(oma=c(5,6,3,1),mar=c(5,6,3,1))
 plot(af1_predict,"cuminc",ylim=c(0,0.012),
@@ -1149,7 +1149,7 @@ af1_age_sub1 <- af1_age; af1_age_sub1$surv <- 1-((1-af1_age_sub1$surv)*0.30)
 af1_age_sub2 <- af1_age; af1_age_sub2$surv <- 1-((1-af1_age_sub2$surv)*0.35)
 af1_age_sub3 <- af1_age; af1_age_sub3$surv <- 1-((1-af1_age_sub3$surv)*0.40)
 
-CairoPDF(file='~/Documents/MGH Research/prs/af_age_nns.pdf',height=3,width=3.5,
+CairoPDF(file='af_age_nns.pdf',height=3,width=3.5,
          pointsize=4)
 par(oma=c(5,6,3,1),mar=c(5,6,3,1))
 plot(af1_age,"cuminc",ylim=c(0,0.012),
@@ -1175,7 +1175,7 @@ fg <- c(4.90,6.06,6.45); fg_lb <- c(3.85,4.77,5.20); fg_ub <- c(5.93,7.33,7.69)
 geisinger <- c(8.56,7.95,7.65); geisinger_lb <- c(7.94,7.45,7.19); geisinger_ub <- c(9.17,8.45,8.12)
 fhs <- c(11.06,10.71,11.09); fhs_lb <- c(9.29,9.08,9.42); fhs_ub <- c(12.80,12.31,12.72)
 
-CairoPDF(file='~/Documents/MGH Research/prs/bar_plot_cohort_all.pdf',height=3,width=5.5,
+CairoPDF(file='bar_plot_cohort_all.pdf',height=3,width=5.5,
          pointsize=5)
 par(oma=c(2.5,3,2.5,1),mar=c(2.5,3,2.5,1))
 coords <- barplot(c(ukbb,NA,fg,NA,geisinger,NA,fhs),
@@ -1224,7 +1224,7 @@ fg <- c(0,6.96,6.61); fg_lb <- c(0,2.57,3.38); fg_ub <- c(0,11.16,9.73)
 geisinger <- c(0,5.54,5.65); geisinger_lb <- c(0,4.68,4.91); geisinger_ub <- c(0,6.39,6.38)
 fhs <- c(0,7.63,9.09); fhs_lb <- c(0,2.87,4.30); fhs_ub <- c(0,12.16,13.64)
 
-CairoPDF(file='~/Documents/MGH Research/prs/bar_plot_cohort_less65.pdf',height=3,width=5.5,
+CairoPDF(file='bar_plot_cohort_less65.pdf',height=3,width=5.5,
          pointsize=5)
 par(oma=c(2.5,3,2.5,1),mar=c(2.5,3,2.5,1))
 coords <- barplot(c(ukbb,NA,fg,NA,geisinger,NA,fhs),col=rep(c('darkgray','#92c5de','#2166ac',NA),4),
@@ -1272,7 +1272,7 @@ fg <- c(4.90,5.81,6.38); fg_lb <- c(3.85,4.40,4.90); fg_ub <- c(5.93,7.21,7.83)
 geisinger <- c(8.56,9.15,9.04); geisinger_lb <- c(7.94,8.49,8.38); geisinger_ub <- c(9.17,9.81,9.69)
 fhs <- c(11.06,11.25,11.44); fhs_lb <- c(9.29,9.47,9.63); fhs_ub <- c(12.80,12.99,13.22)
 
-CairoPDF(file='~/Documents/MGH Research/prs/bar_plot_cohort_over65.pdf',height=3,width=5.5,
+CairoPDF(file='bar_plot_cohort_over65.pdf',height=3,width=5.5,
          pointsize=5)
 par(oma=c(2.5,3,2.5,1),mar=c(2.5,3,2.5,1))
 coords <- barplot(c(ukbb,NA,fg,NA,geisinger,NA,fhs),col=rep(c('darkgray','#92c5de','#2166ac',NA),3),
@@ -1321,7 +1321,7 @@ fg <- c(4.90,6.06,6.45); fg_lb <- c(3.85,4.77,5.20); fg_ub <- c(5.93,7.33,7.69)
 geisinger <- c(1.99,2.00,1.89); geisinger_lb <- c(1.68,1.74,1.65); geisinger_ub <- c(2.29,2.26,2.13)
 fhs <- c(3.09,3.27,3.25); fhs_lb <- c(2.11,2.33,2.30); fhs_ub <- c(4.07,4.21,4.19)
 
-CairoPDF(file='~/Documents/MGH Research/prs/bar_plot_cohort_stroke.pdf',height=3,width=5.5,
+CairoPDF(file='bar_plot_cohort_stroke.pdf',height=3,width=5.5,
          pointsize=5)
 par(oma=c(2.5,3,2.5,1),mar=c(2.5,3,2.5,1))
 coords <- barplot(c(ukbb,NA,fg,NA,geisinger,NA,fhs),
@@ -1370,7 +1370,7 @@ fg <- c(0,5.43,4.25); fg_lb <- c(0,1.35,1.74); fg_ub <- c(0,9.35,6.70)
 geisinger <- c(0,1.77,1.57); geisinger_lb <- c(0,1.29,1.18); geisinger_ub <- c(0,2.24,1.95)
 fhs <- c(0,4.57,2.79); fhs_lb <- c(0,0.55,0); fhs_ub <- c(0,8.43,5.63)
 
-CairoPDF(file='~/Documents/MGH Research/prs/bar_plot_cohort_less65_stroke.pdf',height=3,width=5.5,
+CairoPDF(file='bar_plot_cohort_less65_stroke.pdf',height=3,width=5.5,
          pointsize=5)
 par(oma=c(2.5,3,2.5,1),mar=c(2.5,3,2.5,1))
 coords <- barplot(c(ukbb,NA,fg,NA,geisinger,NA,fhs),col=rep(c('darkgray','#92c5de','#2166ac',NA),4),
@@ -1418,7 +1418,7 @@ fg <- c(5.28,6.15,6.25); fg_lb <- c(4.18,4.67,4.75); fg_ub <- c(6.38,7.61,7.72)
 geisinger <- c(1.99,2.12,2.09); geisinger_lb <- c(1.68,1.79,1.76); geisinger_ub <- c(2.29,2.45,2.42)
 fhs <- c(3.09,3.30,3.38); fhs_lb <- c(2.11,2.25,2.34); fhs_ub <- c(4.07,4.34,4.44)
 
-CairoPDF(file='~/Documents/MGH Research/prs/bar_plot_cohort_over65_stroke.pdf',height=3,width=5.5,
+CairoPDF(file='bar_plot_cohort_over65_stroke.pdf',height=3,width=5.5,
          pointsize=5)
 par(oma=c(2.5,3,2.5,1),mar=c(2.5,3,2.5,1))
 coords <- barplot(c(ukbb,NA,fg,NA,geisinger,NA,fhs),col=rep(c('darkgray','#92c5de','#2166ac',NA),3),
@@ -1499,7 +1499,7 @@ plot1 <- ggplot(data) +
         legend.text=element_text(size=20)) +
   geom_vline(xintercept=5,linetype='dashed')+ 
   labs(x='Predicted 5-year AF risk (%)',y='Count')
-ggsave(filename='~/Documents/MGH Research/prs/over65_density_ctrl.pdf',height=1.8,width=2.53,
+ggsave(filename='over65_density_ctrl.pdf',height=1.8,width=2.53,
        scale=4,device='pdf')
 
 # CHARGE VS Predict-AF (cases)
@@ -1519,7 +1519,7 @@ ggplot(data) +
         legend.text=element_text(size=20)) +
   geom_vline(xintercept=5,linetype='dashed')+
   labs(x='Predicted 5-year AF risk (%)',y='Count')
-ggsave(filename='~/Documents/MGH Research/prs/over65_density_case.pdf',height=1.8,width=2.53,
+ggsave(filename='over65_density_case.pdf',height=1.8,width=2.53,
        scale=4,device='pdf')
 
 ############################################# Step 24: Comparing LDpred-PRS to PT_PRS
