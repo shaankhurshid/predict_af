@@ -1626,3 +1626,17 @@ boot_predict_ld <- boot_cal(time='incd_af_5y.t',status='incd_af_5y',response='pr
 ## Corrected estimates
 corrected_ld <- slope_ld[1]*2 - mean(boot_ld)
 corrected_predict_ld <- slope_predict_ld[1]*2 - mean(boot_predict_ld)
+
+############################################# Step 25: Standardized NB example
+# Determine 5-year AF rate in sample
+af_rate <- cuminc(data=af_set,time='incd_af_5y.t',status='incd_af_5y')
+
+# Determine sens/spec of Predict-AF at 5% risk threshold
+chars <- SeSpPPVNPV(cutpoint=5, T=af_set$incd_af_5y.t, delta=af_set$incd_af_5y, 
+                    marker=af_set$predict_af_pred5, cause=1,
+                    weighting = "marginal", times=4.999)
+
+# Calculate SNB
+nb <- (af_rate[,3]/100)*chars$TP[2]-0.05/0.95*(1-(af_rate[,3]/100))*chars$FP[2]
+max_nb <- af_rate[,3]/100
+snb <- nb/max_nb
