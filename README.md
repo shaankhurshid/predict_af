@@ -2,13 +2,13 @@
 Data processing scripts for Predict-AF analysis
 
 ## Overview
-
+Data processing scripts to perform assessment of clinical and genetic AF prediction to guide AF screening {cite paper when ready}. The descriptions below are meant to be practical - further detail on the methods utilized and disease definitions applied can be found in the paper and supplement.
 
 ## Dependencies
 - R v4.0 (recommended)
 - Libraries
-  - data.table, survival, rms, prodlim, timeROC, nricens, epiR, dca (all available on CRAN)
-  - dcurves (not available on CRAN: devtools::install_github("ddsjoberg/dcurves"))
+  - data.table, survival, rms, prodlim, timeROC, nricens, epiR
+  - dca v0.1.0.9000 (not available on CRAN: devtools::install_github("ddsjoberg/dca")
 
 ## Data/Variable Dictionary
 - Analysis assumes presence of two data.tables
