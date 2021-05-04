@@ -1,15 +1,19 @@
 # predict_af
 Data processing scripts for Predict-AF analysis
 
+## Overview
+
+
 ## Dependencies
-R v4.0 (recommended)
-Libraries: data.table, survival, rms, prodlim, timeROC, nricens, epiR, dca
-devtools::install_github("ddsjoberg/dcurves")
+- R v4.0 (recommended)
+- Libraries
+  - data.table, survival, rms, prodlim, timeROC, nricens, epiR, dca (all available on CRAN)
+  - dcurves (not available on CRAN: devtools::install_github("ddsjoberg/dcurves"))
 
 ## Data/Variable Dictionary
 - Analysis assumes presence of two data.tables
-  -   af_set: all eligible individuals (i.e., without prevalent AF)
-  -   stroke_set: subset of af_set also without prevalent stroke
+  - af_set: all eligible individuals (i.e., without prevalent AF)
+  - stroke_set: subset of af_set also without prevalent stroke
 - Analysis assumes presence of a data.table with the following columns defined
   - Outcome variables
     - incd_af_5y (binary): Incident AF status at 5 years (1 = yes, 0 = no)
