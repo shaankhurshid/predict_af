@@ -2,7 +2,7 @@
 Data processing scripts for Predict-AF analysis
 
 ## Overview
-Data processing scripts to perform assessment of clinical and genetic AF prediction to guide AF screening {cite paper when ready}. The descriptions below are meant to be practical - further detail on the methods utilized and disease definitions applied can be found in the paper and supplement. Initial analyses were performed in the UK Biobank dataset but the analysis structure can apply to any suitable sample with the necessary longitudinal exposure and outcome data.
+Data processing scripts to perform assessment of clinical and genetic AF prediction to guide AF screening {cite paper when ready}. The descriptions below are meant to be practical - further detail on the methods utilized and disease definitions applied can be found in the paper and supplement. Initial analyses were performed in the [UK Biobank](https://www.ukbiobank.ac.uk/) but the analysis structure can apply to any suitable sample with the necessary longitudinal exposure and outcome data.
 
 ## Dependencies
 - R v4.0 (recommended)
